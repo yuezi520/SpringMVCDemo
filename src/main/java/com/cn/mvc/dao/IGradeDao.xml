@@ -47,4 +47,19 @@
     		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=resultMap} 
     	)}
     </select>
+    
+    <select id="getStudent" parameterType="com.cn.mvc.bean.Grade" statementType="CALLABLE">
+    	{CALL RESTFUL_SERVICE.get_student(
+    		#{sno, mode=IN, jdbcType=VARCHAR}, 
+    		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=resultMap} 
+    	)}
+    </select>
+    
+    <select id="addStudent" parameterType="com.cn.mvc.bean.Grade" statementType="CALLABLE">
+    	{CALL RESTFUL_SERVICE.add_student(
+    		#{sno, mode=IN, jdbcType=VARCHAR}, 
+    		#{sname, mode=IN, jdbcType=VARCHAR}, 
+    		#{flag, mode=OUT, jdbcType=VARCHAR} 
+    	)}
+    </select>
 </mapper>

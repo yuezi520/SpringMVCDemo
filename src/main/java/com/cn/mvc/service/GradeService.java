@@ -1,12 +1,15 @@
 package com.cn.mvc.service;
 
+import java.net.URLDecoder;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cn.mvc.bean.Grade;
 import com.cn.mvc.dao.IGradeDao;
+import com.cn.mvc.util.StringUtil;
 
 @Controller
 public class GradeService implements IGradeService {
@@ -14,30 +17,60 @@ public class GradeService implements IGradeService {
 	IGradeDao gradeDao;
 
 	@Override
-	public List<Grade> getAllGrade() {
+	public List<Grade> getAllGrade() throws Exception {
 		Grade grade = new Grade();
 		gradeDao.getGrade(grade);
 		return grade.getList();
 	}
-
+	
 	@Override
-	public Grade getGradeBySno(String sno) {
+	public Grade getGradeBySno(@PathVariable("sno") String sno) throws Exception{
 		Grade grade = new Grade();
+		sno = StringUtil.parseChinese(sno);
 		grade.setSno(sno);
 		gradeDao.getGrade(grade);
-		if(null != grade.getList())
-			return grade.getList().get(0);
+		if(null != grade.getList() && grade.getList().size() > 0){
+			if(grade.getList().get(0).getSno().equals(grade.getSno()))
+				return grade.getList().get(0);
+		}
 		return null;
 	}
 
 	@Override
-	public Grade getGradeBySnoQuery(String sno) {
+	public Grade getGradeBySnoQuery(String sno) throws Exception {
 		Grade grade = new Grade();
+		sno = StringUtil.parseChinese(sno);
 		grade.setSno(sno);
 		gradeDao.getGrade(grade);
-		if(null != grade.getList())
-			return grade.getList().get(0);
+		if(null != grade.getList() && grade.getList().size() > 0){
+			if(grade.getList().get(0).getSno().equals(grade.getSno()))
+				return grade.getList().get(0);//sno为空时，会返回全部
+		}
 		return null;
 	}
 
+	@Override
+	public List<Grade> getAllStudent() throws Exception{
+		Grade grade = new Grade();
+		gradeDao.getStudent(grade);
+		return grade.getList();
+	}
+	
+	@Override
+	public Grade getStudentQuery(Grade grade) throws Exception {
+		grade.setSname(StringUtil.parseChinese(grade.getSname()));
+		gradeDao.getStudent(grade);
+		if(null != grade.getList() && grade.getList().size() > 0){
+			if(grade.getList().get(0).getSno().equals(grade.getSno()))
+				return grade.getList().get(0);//sno为空时，会返回全部
+		}
+		return null;
+	}
+
+	@Override
+	public String saveStudent(Grade grade) throws Exception {
+		grade.setSname(StringUtil.parseChinese(grade.getSname()));
+		gradeDao.addStudent(grade);
+		return grade.getFlag();
+	}
 }

@@ -1,9 +1,10 @@
 $(function(){
+	var baseurl = getRootPath();
 	function getData(servicePath, params, datas, callback){
-		var url = getRootPath()+"/services/gradeService/"+servicePath;
+		var url = baseurl+"/services/gradeService/"+servicePath;
 		if(params && params.length>0){
 			for(var i = 0; i < params.length; i++){
-				url += "/" + encodeURI(params[i]);
+				url += "/" + encodeURI(encodeURI(params[i]));
 			}
 		}
 		$.ajax({
@@ -29,7 +30,7 @@ $(function(){
 		$("#gradeTb1 tbody").html(htmltb);
 	}
 	
-	getData("getGradeBySno", ["1"], {}, "getGradeBySno(result)");
+	getData("getGradeBySno", ["3"], {}, "getGradeBySno(result)");
 	function getGradeBySno(result){
 		var htmltb = "";
 		if(result){
@@ -54,4 +55,9 @@ $(function(){
 		}
 		$("#gradeTb3 tbody").html(htmltb);
 	}
+	
+	$("#addstudent").bind("click",function(){
+		window.location.href = baseurl + "/grade/add-edit-student.html";
+	});
+	
 });

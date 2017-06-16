@@ -11,6 +11,8 @@ public class Grade{
 	private double score;
 	private List<Grade> list;
 	
+	private String flag;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -52,6 +54,12 @@ public class Grade{
 	}
 	public void setList(List<Grade> list) {
 		this.list = list;
+	}
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 	
 }
