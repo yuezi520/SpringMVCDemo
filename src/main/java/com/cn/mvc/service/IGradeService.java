@@ -83,5 +83,23 @@ public interface IGradeService {
 	@RequestMapping("/saveStudent")
 	public String saveStudent(Grade grade) throws Exception;
 	
+	/**
+	 * 更新学生信息
+	 * @param grade
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/editStudent")
+	public String editStudent(Grade grade) throws Exception;
 	
+	/**
+	 * 更新学生信息
+	 * @param grade
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/deleteStudent/{sno}")
+	public String deleteStudent(Grade grade) throws Exception;
 }

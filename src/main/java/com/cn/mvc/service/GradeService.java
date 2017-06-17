@@ -73,4 +73,18 @@ public class GradeService implements IGradeService {
 		gradeDao.addStudent(grade);
 		return grade.getFlag();
 	}
+
+	@Override
+	public String editStudent(Grade grade) throws Exception {
+		Grade newGrade = getStudentQuery(grade);//以sno查询学生信息，获取对象，更新值
+		newGrade.setSname(StringUtil.parseChinese(grade.getSname()));
+		gradeDao.updateStudent(newGrade);
+		return newGrade.getFlag();
+	}
+
+	@Override
+	public String deleteStudent(Grade grade) throws Exception {
+		gradeDao.deleteStudent(grade);
+		return grade.getFlag();
+	}
 }
