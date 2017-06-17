@@ -93,12 +93,19 @@ $(function(){
 			alert("学号已经存在")
 		}
 	}
-	
-	
+		
 	$("#editStudentSubmitBtn").bind("click",function(){
 		var sno = $("#e_sno").val();
         var sname = $("#e_sname").val();
         var datas = {sno:sno, sname:sname};
         getData2("editStudent",[],datas,"editStudent(result)");
 	});
+	function editStudent(result){
+		if(result){
+			alert("操作成功")
+			window.location.reload();
+		}else{
+			alert("未知异常")
+		}
+	}
 });

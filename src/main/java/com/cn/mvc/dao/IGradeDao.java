@@ -28,4 +28,18 @@ public interface IGradeDao {
 	 * @return
 	 */
 	public String addStudent(Grade grade);
+	
+	/**
+	 * 更新学生
+	 * @param grade
+	 * @return
+	 */
+	public String updateStudent(Grade grade);
+	
+	/**
+	 * 删除学生
+	 * @param grade
+	 * @return
+	 */
+	public String deleteStudent(Grade grade);
 }

@@ -62,4 +62,19 @@
     		#{flag, mode=OUT, jdbcType=VARCHAR} 
     	)}
     </select>
+    
+    <select id="updateStudent" parameterType="com.cn.mvc.bean.Grade" statementType="CALLABLE">
+    	{CALL RESTFUL_SERVICE.update_student(
+    		#{sno, mode=IN, jdbcType=VARCHAR}, 
+    		#{sname, mode=IN, jdbcType=VARCHAR}, 
+    		#{flag, mode=OUT, jdbcType=VARCHAR} 
+    	)}
+    </select>
+    
+    <select id="deleteStudent" parameterType="com.cn.mvc.bean.Grade" statementType="CALLABLE">
+    	{CALL RESTFUL_SERVICE.delete_student(
+    		#{sno, mode=IN, jdbcType=VARCHAR}, 
+    		#{flag, mode=OUT, jdbcType=VARCHAR} 
+    	)}
+    </select>
 </mapper>
