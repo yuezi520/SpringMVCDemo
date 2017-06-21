@@ -14,11 +14,11 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.cn.mvc.bean.Menu;
 import com.cn.mvc.dao.IMenuDao;
-import com.cn.mvc.service.IUploadFileService;
+import com.cn.mvc.service.IMenuService;
 import com.cn.mvc.util.ImportExcelUtil;
 
 @Controller
-public class UploadFileService implements IUploadFileService {
+public class MenuService implements IMenuService {
 	@Autowired
 	IMenuDao menuDao;
 	

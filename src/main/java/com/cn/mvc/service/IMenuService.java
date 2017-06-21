@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-@RequestMapping("/uplaodFileService")
-public interface IUploadFileService {
+@RequestMapping("/menuService")
+public interface IMenuService {
 	/**  
      * 描述：通过传统方式form表单提交方式导入excel文件  
      * @param request  
