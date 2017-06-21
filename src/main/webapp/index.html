@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>主页</title>
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-form.js"></script>
+<script type="text/javascript" src="index.js"></script>
 <script type="text/javascript">
 /* window.location.href = window.location.href.replace("index.html","")+"grade/gradeManage.html"; */
 
@@ -14,6 +16,23 @@
 <a href="grade/gradeManage.html" target="re">成绩管理</a>
 <a href="grade/studentManage.html" target="re">学生管理</a>
 </nav>
+
+<content>
+	<div>1.通过简单的form表单提交方式，进行文件的上传</br> 2.通过jquery.form.js插件提供的form表单一步提交功能 </div><br/>  
+    <form method="POST"  enctype="multipart/form-data" id="form1" action="services/uplaodFileService/upload">  
+        <table>  
+         <tr>  
+            <td>上传文件: </td>  
+            <td> <input id="upfile" type="file" name="upfile"></td>  
+         </tr>  
+        <tr>  
+            <td><input type="submit" value="提交" onclick="return checkData()"></td>  
+            <td><input type="button" value="ajax方式提交" id="btn" name="btn" ></td>  
+         </tr>  
+        </table>    
+    </form>
+	
+</content>
 
 <iframe name="re" id="re" src="" width="100%" height="580" frameborder="0"></iframe>
 </body>
