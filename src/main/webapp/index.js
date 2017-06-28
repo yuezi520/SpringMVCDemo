@@ -2,10 +2,12 @@
  * 
  */
 $(function(){
+	$.fn.head.init();
+	
 	 $('#btn').click(function(){  
          if(checkData()){  
              $('#form1').ajaxSubmit({    
-                 url:'services/uplaodFileService/uploadAjaxForm',  
+                 url:'services/menuService/uploadAjaxForm',  
                  dataType: 'text',  
                  success: resutlMsg,  
                  error: errorMsg  
@@ -19,6 +21,8 @@ $(function(){
              }  
          }  
      });
+	 
+	 
 });
 
 //JS校验form表单信息  

@@ -23,5 +23,12 @@
     		#{flag, mode=OUT, jdbcType=VARCHAR} 
     	)}
 	</select>
+	
+	<select id="getMenu" parameterType="com.cn.mvc.bean.Menu" statementType="CALLABLE">
+		{CALL RESTFUL_SERVICE.get_menu(
+    		#{app, mode=IN, jdbcType=VARCHAR}, 
+    		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=com.cn.mvc.dao.IMenuDao.resultMap} 
+    	)}
+	</select>
 
 </mapper>

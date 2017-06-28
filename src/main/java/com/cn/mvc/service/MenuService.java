@@ -16,6 +16,7 @@ import com.cn.mvc.bean.Menu;
 import com.cn.mvc.dao.IMenuDao;
 import com.cn.mvc.service.IMenuService;
 import com.cn.mvc.util.ImportExcelUtil;
+import com.cn.mvc.util.StringUtil;
 
 @Controller
 public class MenuService implements IMenuService {
@@ -150,5 +151,12 @@ public class MenuService implements IMenuService {
         }  
           
         return "success";
-    }  
+    }
+
+	@Override
+	public List<Menu> getAllMenu(Menu menu) throws Exception {
+		menu.setApp(StringUtil.parseChinese(menu.getApp()));
+		menuDao.getMenu(menu);
+		return menu.getList();
+	}  
 }

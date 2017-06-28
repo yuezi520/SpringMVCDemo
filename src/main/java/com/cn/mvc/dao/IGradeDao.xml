@@ -44,14 +44,14 @@
     <select id="getGrade" parameterType="com.cn.mvc.bean.Grade" statementType="CALLABLE">
     	{CALL RESTFUL_SERVICE.get_grade(
     		#{sno, mode=IN, jdbcType=VARCHAR}, 
-    		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=resultMap} 
+    		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=com.cn.mvc.dao.IGradeDao.resultMap} 
     	)}
     </select>
     
     <select id="getStudent" parameterType="com.cn.mvc.bean.Grade" statementType="CALLABLE">
     	{CALL RESTFUL_SERVICE.get_student(
     		#{sno, mode=IN, jdbcType=VARCHAR}, 
-    		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=resultMap} 
+    		#{list, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=com.cn.mvc.dao.IGradeDao.resultMap} 
     	)}
     </select>
     

@@ -9,4 +9,11 @@ public interface IMenuDao {
 	 * @return
 	 */
 	public String saveMenu(Menu menu);
+	
+	/**
+	 * 获取菜单
+	 * @param list
+	 * @return
+	 */
+	public String getMenu(Menu menu);
 }

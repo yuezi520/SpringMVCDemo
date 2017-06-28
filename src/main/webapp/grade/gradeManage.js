@@ -1,4 +1,6 @@
 $(function(){
+	$.fn.head.init();
+	
 	var baseurl = getRootPath();
 	function getData(servicePath, params, datas, callback){
 		var url = baseurl+"/services/gradeService/"+servicePath;
