@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
@@ -153,8 +155,10 @@ public class MenuService implements IMenuService {
         return "success";
     }
 
+	private static Logger logger = LogManager.getLogger(MenuService.class.getName());
 	@Override
 	public List<Menu> getAllMenu(Menu menu) throws Exception {
+		logger.debug("huoqucaidan");
 		menu.setApp(StringUtil.parseChinese(menu.getApp()));
 		menuDao.getMenu(menu);
 		return menu.getList();
