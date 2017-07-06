@@ -42,4 +42,17 @@ public interface IGradeDao {
 	 * @return
 	 */
 	public String deleteStudent(Grade grade);
+	
+	/**
+	 * 获取所有课程
+	 * @return
+	 */
+	public List<Grade> getCourse(Grade grade);
+	
+	/**
+	 * 新增成绩
+	 * @param grade
+	 * @return
+	 */
+	public String addGrade(Grade grade);
 }

@@ -1,6 +1,9 @@
 package com.cn.mvc.service;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +50,16 @@ public interface IGradeService {
 	@ResponseBody
 	@RequestMapping("/getGradeBySnoQuery")
 	public Grade getGradeBySnoQuery(@RequestParam("sno") String sno) throws Exception;
+	
+	/**
+	 * 获取成绩
+	 * @param grade
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/getGrade")
+	public List<Grade> getGrade(Grade grade) throws Exception;
 	
 	/**
 	 * 获取所有学生
@@ -101,4 +114,21 @@ public interface IGradeService {
 	@ResponseBody
 	@RequestMapping("/deleteStudent/{sno}")
 	public String deleteStudent(Grade grade) throws Exception;
+	
+	/**
+	 * 获取所有课程
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/getAllCourse")
+	public List<Grade> getAllCourse() throws Exception;
+	
+	/**
+	 * 处理成绩excel表
+	 * @param request
+	 */
+	@ResponseBody
+	@RequestMapping("/upload")
+    public Map<String, Object> upload(HttpServletRequest request) throws Exception ;
 }

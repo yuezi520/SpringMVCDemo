@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/grade.css" type="text/css" />
+<script type="text/javascript" src="../js/serverinfo.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/header.js"></script>
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="addGrade.js"></script>
+</head>
+<body>
+	<nav></nav>
+	<div id="reportpath">
+		<span></span>
+	</div>
+	<div>
+		<input type="file" id="upGrade" name="upGrade"/> 
+		<input type="button" id="upGradeBtn" value="提交"/>
+	</div>
+	<div id="upReDiv" style="display: none;">
+		<span>上传结果</span>
+		<div id="readFailDiv">
+			<span>读取文件发现有<span id="readFailnum" style="color: red;"></span>处错误，详情如下：</span>
+			<div id="readFailDetailDiv"></div>
+		</div>
+		<div id="saveFailDiv">
+			<span>保存数据失败<span id="saveFailnum" style="color: red;"></span>行，详情如下：</span>
+			<div id="saveFailDetailDiv"></div>
+		</div>
+	</div>
+</body>
+</html>

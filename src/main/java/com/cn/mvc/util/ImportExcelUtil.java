@@ -102,7 +102,7 @@ public class ImportExcelUtil {
 		
 		switch (cell.getCellType()) {
 		case Cell.CELL_TYPE_STRING:
-			value = cell.getRichStringCellValue().getString();
+			value = cell.getRichStringCellValue().getString().trim();
 			break;
 		case Cell.CELL_TYPE_NUMERIC:
 			if("General".equals(cell.getCellStyle().getDataFormatString())){

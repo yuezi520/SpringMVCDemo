@@ -158,7 +158,7 @@ public class MenuService implements IMenuService {
 	private static Logger logger = LogManager.getLogger(MenuService.class.getName());
 	@Override
 	public List<Menu> getAllMenu(Menu menu) throws Exception {
-		logger.debug("huoqucaidan");
+		logger.debug("获取菜单");
 		menu.setApp(StringUtil.parseChinese(menu.getApp()));
 		menuDao.getMenu(menu);
 		return menu.getList();

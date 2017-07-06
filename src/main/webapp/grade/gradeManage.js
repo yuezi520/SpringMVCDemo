@@ -62,6 +62,10 @@ $(function(){
 		window.location.href = baseurl + "/grade/add-edit-student.html";
 	});
 	
+	$("#addgrade").bind("click",function(){
+		window.location.href = baseurl + "/grade/addGrade.html";
+	});
+	
 	getData("getAllGrade", [], {}, "draw1(result)");
 	var myChart1 = echarts.init(document.getElementById('chart1'));
 //	var myChart2 = echarts.init(document.getElementById('chart2'));
@@ -177,7 +181,10 @@ $(function(){
 		});
 	}
 	
+	//固定表头
 	new fixedTable('fix1', document.getElementById('gradeTb1'), {});
+	
+	//echarts图需要手工写自适应窗口变化
 	$(window).resize(function(){
 		myChart1.resize();
 //		myChart2.resize();
