@@ -1,4 +1,6 @@
 $(function(){
+	$.fn.head.init();
+	
 	var baseurl = getRootPath();
 	//少个查询参数，用get方法，params和datas尽量用其一，处理中文较繁琐
 	//处理中文 通过'/'方式拼接url的，要手动encodeURI两次

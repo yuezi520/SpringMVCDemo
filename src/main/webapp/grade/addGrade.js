@@ -29,7 +29,6 @@ $(function(){
 		   fileElementId:'upGrade',
 		   dataType : "json",
 		   success: function(data){
-			  debugger;
 			  dealUploadResult(data);
 		   },
 		   error: function(data){

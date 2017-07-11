@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Student Manage</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="../css/grade.css" type="text/css" />
 <script type="text/javascript" src="../js/serverinfo.js"></script>
 <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../js/header.js"></script>
-<script type="text/javascript" src="studentManage.js"></script>
+<script type="text/javascript" src="menuManage.js"></script>
 </head>
 <body>
 	<nav></nav>
 	<div id="reportpath">
 		<span></span>
 	</div>
-	<div id="stuDiv">
-		<table id="stuTb">
+	<div id="menuDiv">
+		<table id="menuTb">
 			<thead>
-				<tr><td>学号</td><td>姓名</td><td>操作</td></tr>
+				<tr><td>父级菜单</td><td>菜单名称</td><td>访问路径</td><td>操作</td></tr>
 			</thead>
 			<tbody></tbody>
 		</table>
@@ -30,9 +30,10 @@
 		</div>
 		<hr class="clear">
 		<div id="editcontent" style="text-align: center; margin-top: 50px;">
-			<input type="hidden" id="e_sno"/>
-			姓名：<input type="text" name="sname" id="e_sname"/><br/><br/>
-			<input type="button" value="提交" id="editStudentSubmitBtn"/>
+			<input type="hidden" id="e_id"/>
+			<h4 id="e_name"></h4><br>
+			访问路径：<input type="text" name="sname" id="e_path"/><br/><br/>
+			<input type="button" value="提交" id="editMenuSubmitBtn"/>
 		</div>
 	</div>
 </body>

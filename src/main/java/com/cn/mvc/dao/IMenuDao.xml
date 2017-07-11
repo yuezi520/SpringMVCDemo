@@ -31,4 +31,19 @@
     	)}
 	</select>
 
+	<select id="deleteMenu" parameterType="com.cn.mvc.bean.Menu" statementType="CALLABLE">
+		{CALL RESTFUL_SERVICE.delete_menu(
+    		#{id, mode=IN, jdbcType=INTEGER}, 
+    		#{app, mode=IN, jdbcType=VARCHAR}, 
+    		#{flag, mode=OUT, jdbcType=VARCHAR} 
+    	)}
+	</select>
+	
+	<select id="updateMenu" parameterType="com.cn.mvc.bean.Menu" statementType="CALLABLE">
+		{CALL RESTFUL_SERVICE.update_menu(
+    		#{id, mode=IN, jdbcType=INTEGER}, 
+    		#{visitPath, mode=IN, jdbcType=VARCHAR}, 
+    		#{flag, mode=OUT, jdbcType=VARCHAR} 
+    	)}
+	</select>
 </mapper>

@@ -16,4 +16,18 @@ public interface IMenuDao {
 	 * @return
 	 */
 	public String getMenu(Menu menu);
+	
+	/**
+	 * 删除菜单
+	 * @param menu
+	 * @return
+	 */
+	public String deleteMenu(Menu menu);
+	
+	/**
+	 * 更新菜单
+	 * @param menu
+	 * @return
+	 */
+	public String updateMenu(Menu menu);
 }

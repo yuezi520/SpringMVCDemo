@@ -58,14 +58,6 @@ $(function(){
 		$("#gradeTb3 tbody").html(htmltb);
 	}
 	
-	$("#addstudent").bind("click",function(){
-		window.location.href = baseurl + "/grade/add-edit-student.html";
-	});
-	
-	$("#addgrade").bind("click",function(){
-		window.location.href = baseurl + "/grade/addGrade.html";
-	});
-	
 	getData("getAllGrade", [], {}, "draw1(result)");
 	var myChart1 = echarts.init(document.getElementById('chart1'));
 //	var myChart2 = echarts.init(document.getElementById('chart2'));

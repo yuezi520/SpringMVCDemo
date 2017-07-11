@@ -1,6 +1,7 @@
 package com.cn.mvc.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,5 +42,45 @@ public interface IMenuService {
     @ResponseBody
     @RequestMapping("/getAllMenu/{app}")
     public List<Menu> getAllMenu(Menu menu) throws Exception;
+    
+    /**
+     * 
+     * @param menu
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping("/getMenu")
+    public Menu getMenu(Menu menu) throws Exception;
 	
+    /**
+     * 删除菜单
+     * @param menu
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody  
+    @RequestMapping("/deleteMenu") 
+    public String deleteMenu(Menu menu) throws Exception;
+    
+    /**
+     * 上传菜单，通过fileAjaxUpload插件
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody  
+    @RequestMapping("/fileAjaxUpload")  
+    public  Map<String, Object>  fileAjaxUpload(HttpServletRequest request,HttpServletResponse response) throws Exception; 
+    
+    /**
+     * 更新菜单
+     * @param menu
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping("/updateMenu")  
+    public String updateMenu(Menu menu) throws Exception;
 }

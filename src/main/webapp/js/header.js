@@ -113,18 +113,17 @@
     	$("#reportpath span").html(reportpath);
     }
     
-    function jsonConvertTree(result, pid){
-    	var tree = [], temp;
-    	for(var i = 0; i < result.length; i++){
-    		if(pid == result[i].parentId){
-    			var treeNode = result[i];
-    			temp = jsonConvertTree(result, result[i].id);
-    			treeNode.children = temp;
-                tree.push(treeNode);
-    		}
-    	}
-    	return tree;
-    }
-  
-    
 })(jQuery,window,document);
+
+function jsonConvertTree(result, pid){
+	var tree = [], temp;
+	for(var i = 0; i < result.length; i++){
+		if(pid == result[i].parentId){
+			var treeNode = result[i];
+			temp = jsonConvertTree(result, result[i].id);
+			treeNode.children = temp;
+            tree.push(treeNode);
+		}
+	}
+	return tree;
+}
