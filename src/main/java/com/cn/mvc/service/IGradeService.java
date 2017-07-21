@@ -71,6 +71,15 @@ public interface IGradeService {
 	public List<Grade> getAllStudent() throws Exception;
 	
 	/**
+	 * 目前用于模糊查询姓名
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/getStudent")
+	public List<Grade> getStudent(Grade grade) throws Exception;
+	
+	/**
 	 * 组件name与实体类属性名一致，可以映射到值
 	 * 通过查询条件获取学生信息
 	 * 目前学生信息简单，用grade类就可以
@@ -125,10 +134,29 @@ public interface IGradeService {
 	public List<Grade> getAllCourse() throws Exception;
 	
 	/**
+	 * 获取课程
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/getCourse")
+	public List<Grade> getCourse(Grade grade) throws Exception;
+	
+	/**
 	 * 处理成绩excel表
 	 * @param request
 	 */
 	@ResponseBody
 	@RequestMapping("/upload")
     public Map<String, Object> upload(HttpServletRequest request) throws Exception ;
+	
+	/**
+	 * 录入成绩
+	 * @param grade
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping("/addGrade")
+	public String addGrade(Grade grade) throws Exception;
 }

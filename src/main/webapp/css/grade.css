@@ -93,3 +93,16 @@ nav{
     border-radius: 5px;
     display: none;
 }
+/**插件下拉框样式start*/
+.selectDiv > span, .inputDiv{
+	float: left;
+	text-align: left;
+}
+.inputDiv li span{
+	color: #66bdf3;
+}
+.inputDiv li span:hover{
+	text-decoration: underline;
+	color: red;
+}
+

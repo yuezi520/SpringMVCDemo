@@ -8,12 +8,40 @@
 <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../js/header.js"></script>
 <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="../js/select.js"></script>
 <script type="text/javascript" src="addGrade.js"></script>
 </head>
 <body>
 	<nav></nav>
 	<div id="reportpath">
 		<span></span>
+	</div>
+	<div id="" style="width: 250px; height: 150px; margin: 0 auto; text-align: center;">
+		<h4>录入成绩</h4>
+		<div class="selectDiv">
+			<span>姓名：</span>
+			<div class="inputDiv">
+				<input type="hidden" id="sname_code">
+				<input type="text" id="sname" readonly="readonly">
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="selectDiv">
+			<span>课程：</span>
+			<div class="inputDiv">
+				<input type="hidden" id="cname_code">
+				<input type="text" id="cname" readonly="readonly">
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="selectDiv">
+			<span>成绩：</span>
+			<div class="inputDiv">
+				<input type="text" id="score">
+			</div>
+		</div>
+		<div class="clear"></div>
+		<input type="button" id="intoDbBtn" value="录入" name="intoDbBtn"/>
 	</div>
 	<div>
 		<input type="file" id="upGrade" name="upGrade"/> 

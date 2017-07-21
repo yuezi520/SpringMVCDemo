@@ -75,6 +75,13 @@ public class GradeService implements IGradeService {
 	}
 	
 	@Override
+	public List<Grade> getStudent(Grade grade) throws Exception {
+		grade.setSname(StringUtil.parseChinese(grade.getSname()));
+		gradeDao.getStudent(grade);
+		return grade.getList();
+	}
+	
+	@Override
 	public Grade getStudentQuery(Grade grade) throws Exception {
 		grade.setSname(StringUtil.parseChinese(grade.getSname()));
 		gradeDao.getStudent(grade);
@@ -94,8 +101,10 @@ public class GradeService implements IGradeService {
 
 	@Override
 	public String editStudent(Grade grade) throws Exception {
+		String newName = grade.getSname();
+		grade.setSname("");
 		Grade newGrade = getStudentQuery(grade);//以sno查询学生信息，获取对象，更新值
-		newGrade.setSname(StringUtil.parseChinese(grade.getSname()));
+		newGrade.setSname(StringUtil.parseChinese(newName));
 		gradeDao.updateStudent(newGrade);
 		return newGrade.getFlag();
 	}
@@ -109,6 +118,13 @@ public class GradeService implements IGradeService {
 	@Override
 	public List<Grade> getAllCourse() throws Exception{
 		Grade grade = new Grade();
+		gradeDao.getCourse(grade);
+		return grade.getList();
+	}
+	
+	@Override
+	public List<Grade> getCourse(Grade grade) throws Exception{
+		grade.setCname(StringUtil.parseChinese(grade.getCname()));
 		gradeDao.getCourse(grade);
 		return grade.getList();
 	}
@@ -231,5 +247,12 @@ public class GradeService implements IGradeService {
 	   return false;
 	}
 	
-	
+	public String addGrade(Grade grade) throws Exception{
+		if(getGrade(grade).size() > 0){
+			grade.setFlag("2");
+		}else{
+			gradeDao.addGrade(grade);
+		}
+		return grade.getFlag();
+	}
 }
