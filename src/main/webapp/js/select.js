@@ -33,9 +33,13 @@
 	
 	function connectNodes(_nodes){
 		var html = [];
-		for(var i = 0; i < _nodes.length; i++){
-			html.push("<li id='selectList_",_setting.elementId,"_",_nodes[i].id,"'><input type='radio' name='select' value='",_nodes[i].id,"'>" +
-					"&nbsp;<span style='cursor:pointer;'>",_nodes[i].name,"</span></li>");
+		if(_nodes.length == 0){
+			html.push("<div>No data!<div>");
+		}else{
+			for(var i = 0; i < _nodes.length; i++){
+				html.push("<li id='selectList_",_setting.elementId,"_",_nodes[i].id,"'><input type='radio' name='select' value='",_nodes[i].id,"'>" +
+						"&nbsp;<span style='cursor:pointer;'>",_nodes[i].name,"</span></li>");
+			}
 		}
 		$("#selectListDiv_"+_setting.elementId+" ul").html(html.join(""));
 		dealEvent();
@@ -51,7 +55,7 @@
 		$("html").live("mousedown ", function(e){
 			var e = e || window.event; //浏览器兼容性 
 			var elem = e.target || e.srcElement; 
-			while (elem) { //循环判断至跟节点，防止点击的是div子元素 
+			while (elem) { //循环判断至根节点，防止点击的是div子元素 
 				if (elem.id && elem.id=="selectDiv_"+_setting.elementId) return; 
 				elem = elem.parentNode; 
 			} 

@@ -43,18 +43,9 @@ $.fn.head.init();
 	getData1("getAllMenu", ["GradeSystem"], {}, "getAllMenu(result)");
 	function getAllMenu(result){
 		var htmltb = "";
-		for(var i = 0; i < result.length; i++){
-			var res = result[i];
-			htmltb += "<tr>";
-			htmltb += "<td>"+dealNull(res.parent)+"</td>" + "<td>"+dealNull(res.nameCn)+"</td>" + "<td>"+dealNull(res.visitPath)+"</td>" +
-					  "<td><a href='javascript:void(0)' _name='showMenu' _id='"+res.id+"' >编辑</a>\t&nbsp;&nbsp;"+
-					  "<a href='javascript:void(0)' _name='delMenu' _id='"+res.id+"'>删除</a></td>";
-			htmltb += "</tr>";
-		}
-		
 		var tree = jsonConvertTree(result, null);
 		if(tree.length > 0){
-			htmltb = tr(tree[0]);
+			htmltb = tr1(tree[0]);
 		}
 		
 		$("#menuTb tbody").html(htmltb);
@@ -63,7 +54,30 @@ $.fn.head.init();
 		return (val==null) ? "" : val;
 	}
 	
-	function tr(tree){
+	function tr(tree, root){
+		var htmltb = "";
+		if(tree.children.length == 0){
+			htmltb += "<tr>";
+			htmltb += "<td>"+dealNull(tree.parent)+"</td>" + "<td>"+dealNull(tree.nameCn)+"</td>" + "<td>"+dealNull(tree.visitPath)+"</td>" +
+					  "<td><a href='javascript:void(0)' _name='showMenu' _id='"+tree.id+"' >编辑</a></td>";
+			htmltb += "</tr>";
+			return htmltb;
+		}else{
+			htmltb += "<tr>";
+			htmltb += "<td>"+dealNull(tree.parent)+"</td>" + "<td>"+dealNull(tree.nameCn)+"</td>" + "<td>"+dealNull(tree.visitPath)+"</td>";
+			if(tree == root){
+				htmltb += "<td><a href='javascript:void(0)' _name='delMenu' _id='"+tree.id+"'>删除</a></td>";
+			}else{
+				htmltb += "<td></td>";
+			}
+			htmltb += "</tr>";
+		}
+		for(var i = 0; i < tree.children.length; i++){
+			htmltb += tr(tree.children[i], root);
+		}
+		return htmltb;
+	}
+	function tr1(tree){
 		var htmltb = "";
 		if(tree.children.length == 0){
 			htmltb += "<tr>";
@@ -79,7 +93,7 @@ $.fn.head.init();
 			htmltb += "</tr>";
 		}
 		for(var i = 0; i < tree.children.length; i++){
-			htmltb += tr(tree.children[i]);
+			htmltb += tr1(tree.children[i]);
 		}
 		return htmltb;
 	}

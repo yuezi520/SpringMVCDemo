@@ -94,8 +94,8 @@ $(function(){
 				row.name = result[i].sname;
 				nodes.push(row);
 			}
-			$.fn.select.select(nodes);
 		}
+		$.fn.select.select(nodes);
 	}
 	function onclick1(){
 		
